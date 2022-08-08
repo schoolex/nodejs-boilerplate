@@ -14,7 +14,6 @@ src
 └───loaders         # Split the startup process into modules
 └───models          # TypeORM Entities
 └───services        # All the business logic is here
-└───types           # Type declaration files (d.ts) for Typescript
 
 ```
 

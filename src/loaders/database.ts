@@ -1,5 +1,3 @@
-import Container from 'typedi';
-import { Connection, createConnection, useContainer } from 'typeorm';
 import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
 import config from '../config';
 import { User } from '../models/User';
@@ -17,9 +15,6 @@ export default async (): Promise<Connection> => {
     // useNewUrlParser: true,
     entities: [User],
   };
-
-  // typedi + typeorm
-  useContainer(Container);
 
   // create a connection using modified connection options
   const connection = await createConnection(connectionOptions);

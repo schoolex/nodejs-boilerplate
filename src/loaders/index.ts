@@ -1,5 +1,4 @@
 import * as express from 'express';
-import 'reflect-metadata';
 import database from './database';
 import server from './server';
 
