@@ -1,23 +1,19 @@
-import { MongoConnectionOptions } from 'typeorm/driver/mongodb/MongoConnectionOptions';
+import mongoose, { Connection, createConnection } from 'mongoose';
 import config from '../config';
-import { User } from '../models/User';
+import { logger } from '../loggers/logger';
 
-export default async (): Promise<Connection> => {
-  // read connection options from ormconfig file (or ENV variables)
-  // const connectionOptions = await getConnectionOptions();
-  const connectionOptions: MongoConnectionOptions = {
-    type: 'mongodb',
-    host: config.database.host,
-    port: config.database.port,
-    database: config.database.database,
-    synchronize: false,
-    logging: true,
-    // useNewUrlParser: true,
-    entities: [User],
-  };
-
-  // create a connection using modified connection options
-  const connection = await createConnection(connectionOptions);
-
-  return connection;
+const connect = async (): Promise<void> => {
+  const dbUrl = config.database.url;
+  try {
+    await mongoose.connect(dbUrl);
+    logger.info(`Connected to MongoDB at ${dbUrl}`);
+  } catch (err) {
+    logger.error(`Could not connect to MongoDB at ${dbUrl} `, err);
+  }
 };
+
+const database = {
+  connect,
+};
+
+export { database as default };
