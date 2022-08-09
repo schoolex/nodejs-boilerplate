@@ -9,6 +9,7 @@ const createUser = async (name: string, dob: string, address: string, descriptio
     dob,
     address,
     description,
+    createdAt: new Date(),
   });
   if (!newUser) {
     throw new Error(`Failed to create user with name: ${name}`);

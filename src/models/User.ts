@@ -6,6 +6,7 @@ export interface User {
   dob: string;
   address: string;
   description: string;
+  createdAt: Date;
 }
 
 export interface UserUpdateOptions {
@@ -20,6 +21,7 @@ const userSchema = new mongoose.Schema({
   dob: String,
   address: String,
   description: String,
+  createdAt: Date,
 });
 
 export const UserModel = mongoose.model<User>('user', userSchema);
