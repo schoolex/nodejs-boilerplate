@@ -5,10 +5,7 @@ services:
     environment:
       - PORT=8080
       - JWT_SECRET=secret
-      - TYPEORM_CONNECTION=mongodb
-      - TYPEORM_HOST=mongodb
-      - TYPEORM_PORT=27017
-      - TYPEORM_DATABASE=test
+      - DB_URL=mongodb://admin:admin@localhost:27017
     ports:
       - "8080:8080"
     links:
@@ -20,6 +17,10 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: nodeBoilerplate
     networks:
       - internal
 
