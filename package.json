@@ -35,7 +35,7 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.6.0",
-    "mongoose": "^6.3.6",
+    "mongoose": "^6.5.2",
     "morgan": "^1.10.0",
     "pino": "^7.6.3",
     "pino-http": "^6.5.0",
