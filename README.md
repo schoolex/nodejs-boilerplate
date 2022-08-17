@@ -56,6 +56,9 @@ This can be done by running the command `docker-compose up -d`
 ### Setting up env variables
 Create a copy of the `.example.env` file and rename it to `.env`. All the required env variables should be set inside this .env file. JWT secret can be ignored if no auth strategy is implemented
 
+### Testing
+This repo makes use of the jest framework to perform testing. Run them using the command `npm test`
+
 <br>
 <br>
 

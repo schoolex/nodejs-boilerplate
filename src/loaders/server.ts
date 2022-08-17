@@ -5,7 +5,9 @@ import helmet from 'helmet';
 import routes from '../routes';
 import { logger, httpLogger } from '../loggers/logger';
 
-
+/**
+ * Initialise the express application
+ */
 export default (app: express.Application) => {
   app.enable('trust proxy');
   app.use(cors());

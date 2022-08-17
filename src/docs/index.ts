@@ -2,6 +2,9 @@ import info from './info';
 import servers from './servers';
 import users from './users';
 
+/**
+ * Main swagger doc structure
+ */
 export default () => {
   return {
     openapi: '3.0.3',

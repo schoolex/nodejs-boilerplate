@@ -1,3 +1,6 @@
+/**
+ * List all the servers
+ */
 export default () => {
   return [
     {
