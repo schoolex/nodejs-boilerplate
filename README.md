@@ -9,12 +9,14 @@ src
 │   main.ts         # Application entry point
 └───route           # Express route controllers for all the endpoints of the app
 └───config          # Environment variables and configurations
+└───docs            # Contains the components required to generate swagger ui
 └───loaders         # Split the startup process into modules (eg. db setup and swagger ui)
 └───models          # Mongo models
 └───services        # All the business logic is here
 └───repository      # An abstraction layer to interact with the db, allows for the swapping of db providers
 └───middlewares     # All middleware logic
 └───exceptions      # All the custom exceptions is located here
+
 tests               # All tests files located here
 | 
 
@@ -47,12 +49,12 @@ Install [Node.js and NPM](https://nodejs.org/en/download/)
 - the builded app located in `dist`.
 
 ### Setting up mongodb
-Using the docker compose file, we can spawn a local docker img of mongodb. Currently, the docker compose yml is designed to spin up a copy of the app and mongodb. For testing purposes, we are only interested in setting up mongodb. The default config for mongodb can be found in the yml file.
+Using the docker compose file, we can spawn a local docker img of mongodb. Currently, the docker compose yml is designed to spin up a copy of both the app and mongodb. For testing purposes, we are only interested in setting up mongodb. The default config for mongodb can be found in the yml file.
 
-Run the command `docker-compose up -d`
+This can be done by running the command `docker-compose up -d`
 
 ### Setting up env variables
-Create a copy of the `.example.env` file, rename it `.env`. All the required env variables should be set inside this .env file. JWT secret can be ignored if no auth strategy is implemented
+Create a copy of the `.example.env` file and rename it to `.env`. All the required env variables should be set inside this .env file. JWT secret can be ignored if no auth strategy is implemented
 
 <br>
 <br>
