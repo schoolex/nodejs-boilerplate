@@ -37,6 +37,15 @@ Install [Node.js and NPM](https://nodejs.org/en/download/)
 
 - Install all dependencies with `npm install`
 
+
+### Setting up mongodb
+Using the docker compose file, we can spawn a local docker img of mongodb. Currently, the docker compose yml is designed to spin up a copy of both the app and mongodb. For testing purposes, we are only interested in setting up mongodb. The default config for mongodb can be found in the yml file.
+
+This can be done by running the command `docker-compose up -d`
+
+### Setting up env variables
+Create a copy of the `.example.env` file and rename it to `.env`. All the required env variables should be set inside this .env file. JWT secret can be ignored if no auth strategy is implemented
+
 ### Running in dev mode
 
 - Run `npm start`
@@ -48,13 +57,6 @@ Install [Node.js and NPM](https://nodejs.org/en/download/)
 - Run `npm build` to generated all JavaScript files from the TypeScript sources.
 - the builded app located in `dist`.
 
-### Setting up mongodb
-Using the docker compose file, we can spawn a local docker img of mongodb. Currently, the docker compose yml is designed to spin up a copy of both the app and mongodb. For testing purposes, we are only interested in setting up mongodb. The default config for mongodb can be found in the yml file.
-
-This can be done by running the command `docker-compose up -d`
-
-### Setting up env variables
-Create a copy of the `.example.env` file and rename it to `.env`. All the required env variables should be set inside this .env file. JWT secret can be ignored if no auth strategy is implemented
 
 ### Testing
 This repo makes use of the jest framework to perform testing. Run them using the command `npm test`
