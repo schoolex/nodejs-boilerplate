@@ -8,7 +8,9 @@ const createUser = async (user: User) => {
 const updateUser = async (userId: string, updatedUserFields: UserUpdateOptions) => {
   const updatedUser = await UserModel.findByIdAndUpdate(userId, updatedUserFields, {
     new: true,
-  }).select('-__v').lean();
+  })
+    .select('-__v')
+    .lean();
   return updatedUser;
 };
 

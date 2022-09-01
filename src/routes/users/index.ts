@@ -1,7 +1,6 @@
 import { Request, Response, Router } from 'express';
 import UserService from '../../services/userService';
 import wrap from 'express-async-handler';
-import router from '..';
 
 const route = Router();
 

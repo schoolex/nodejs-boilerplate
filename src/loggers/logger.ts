@@ -17,6 +17,7 @@ export const logger = pino({
 // Format date and time for morgan
 morgan.token('date', () => new Date().toUTCString().split(' GMT')[0].split(', ')[1]);
 
+// morgan logger for http requests
 export const httpLogger = morgan((tokens, req, res) =>
   [
     chalk.white(`[${tokens.date(req, res)}]`),
@@ -27,4 +28,3 @@ export const httpLogger = morgan((tokens, req, res) =>
     chalk.gray(tokens['user-agent'](req, res)),
   ].join(' '),
 );
-

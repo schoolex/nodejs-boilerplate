@@ -1,3 +1,7 @@
+/**
+ * Docs related to the 'Users' endpoints
+ */
+
 const tags = ['Users'];
 
 const get = () => {
