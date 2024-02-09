@@ -43,7 +43,7 @@ Using the docker compose file, we can spawn a local docker img of mongodb. Curre
 
 This can be done by running the command `docker compose up -d`. 
 The default port used for api is `8080`, and the default port for mongodb is `27017`.
-This can be changed in the yml file.
+This can be changed in the `docker-compose.yml` file.
 
 Test the api by visiting `http://localhost:8080/api/docs/` in your browser.
 
