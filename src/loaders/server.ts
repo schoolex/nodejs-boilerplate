@@ -15,7 +15,16 @@ export default (app: express.Application) => {
   app.use(bodyParser.json());
   app.use(httpLogger);
 
+  app.get('/favicon.ico', (req, res) => {
+    res.status(204);
+});
+
   app.use('/api', routes);
+
+  // Default route
+  routes.get('/', (_req, res) => {
+    res.json({ message: 'Hello World!' });
+  });
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {

@@ -55,7 +55,7 @@ jest.mock('../src/repository/userRepo', () => {
   };
 });
 
-describe('Simple expression tests', () => {
+describe('User service test', () => {
   it('adds user', async () => {
     const user = await userService.createUser(
       USER_JOHN.name,

@@ -1,7 +1,5 @@
 import * as dotenv from 'dotenv';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
 const envFound = dotenv.config();
 if (!envFound) {
   // Throw generic error
@@ -9,6 +7,9 @@ if (!envFound) {
 }
 
 export default {
+  // Environment
+  env: process.env.NODE_ENV || 'development',
+
   // Application port.
   port: parseInt(process.env.PORT) || 3000,
 
@@ -16,4 +17,5 @@ export default {
   database: {
     url: process.env.DB_URL,
   },
+
 };

@@ -5,7 +5,8 @@ services:
     environment:
       - PORT=8080
       - JWT_SECRET=secret
-      - DB_URL=mongodb://admin:admin@localhost:27017
+      - DB_URL=mongodb://admin:admin@mongodb:27017
+      - NODE_ENV=prod
     ports:
       - "8080:8080"
     links:

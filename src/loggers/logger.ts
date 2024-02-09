@@ -1,30 +1,17 @@
 import pino from 'pino';
 import morgan from 'morgan';
-import chalk from 'chalk';
+import config from '../config';
 
-// pino logger is used for regular logging
+const isDevelopment = config.env === 'development';
 export const logger = pino({
-  transport: {
+  transport: isDevelopment ? {
     target: 'pino-pretty',
     options: {
       colorize: true,
       levelFirst: true,
       translateTime: 'SYS:dd-mm-yyyy h:MM:ss TT',
     },
-  },
+  } : undefined,
 });
 
-// Format date and time for morgan
-morgan.token('date', () => new Date().toUTCString().split(' GMT')[0].split(', ')[1]);
-
-// morgan logger for http requests
-export const httpLogger = morgan((tokens, req, res) =>
-  [
-    chalk.white(`[${tokens.date(req, res)}]`),
-    chalk.yellow.bold(tokens.method(req, res)),
-    chalk.yellow.bold(tokens.status(req, res)),
-    chalk.hex('#ff5252')(tokens.url(req, res)),
-    chalk.hex('#2ed573')(`${tokens['response-time'](req, res)} ms`),
-    chalk.gray(tokens['user-agent'](req, res)),
-  ].join(' '),
-);
+export const httpLogger = morgan('dev');
